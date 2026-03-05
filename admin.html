@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Electrical Service Admin</title>
+</head>
+
+<body>
+
+<h2>Add Service Job</h2>
+
+<form id="jobForm">
+
+<input placeholder="Date" id="date"><br><br>
+<input placeholder="Customer Name" id="customer"><br><br>
+<input placeholder="Phone" id="phone"><br><br>
+<input placeholder="Address" id="address"><br><br>
+
+<input placeholder="Service Category" id="category"><br><br>
+
+<textarea placeholder="Service Description" id="description"></textarea><br><br>
+
+<input placeholder="Staff Name" id="staff"><br><br>
+
+<input placeholder="Material Cost" id="material"><br><br>
+
+<input placeholder="Labour Cost" id="labour"><br><br>
+
+<input placeholder="Amount Charged" id="charged"><br><br>
+
+<input placeholder="Payment Status" id="payment"><br><br>
+
+<button type="submit">Submit Job</button>
+
+</form>
+
+<script>
+
+const scriptURL = https://script.google.com/macros/s/AKfycbxI41At2-GMrk0S8CU0qb04XKsOcR4WgwJeC-M3WWAxkD3V5Ekn2sKYZhV8EPjotaN_nQ/exec;
+
+document.getElementById("jobForm").addEventListener("submit", e => {
+
+e.preventDefault();
+
+const data = {
+date: document.getElementById("date").value,
+customer: document.getElementById("customer").value,
+phone: document.getElementById("phone").value,
+address: document.getElementById("address").value,
+category: document.getElementById("category").value,
+description: document.getElementById("description").value,
+staff: document.getElementById("staff").value,
+material: document.getElementById("material").value,
+labour: document.getElementById("labour").value,
+charged: document.getElementById("charged").value,
+payment: document.getElementById("payment").value
+};
+
+fetch(scriptURL,{
+method:"POST",
+body: JSON.stringify(data)
+})
+.then(res => alert("Job Saved"));
+
+});
+
+</script>
+
+</body>
+</html>
